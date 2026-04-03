@@ -102,7 +102,6 @@
       background-color: #2a2a2a;
       padding: 15px;
       border-radius: 4px;
-      padding-bottom: 25px;
       width: 100%;
       box-sizing: border-box;
       user-select: none;
@@ -114,7 +113,6 @@
       justify-content: center;
       align-items: center;
       gap: 25px;
-      margin-bottom: 15px;
     }
 
     .control-btn {
@@ -199,6 +197,12 @@
       object-fit: cover;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     }
+
+    @media (pointer: coarse) {
+      .volume-row {
+        display: none;
+      }
+    }
   </style>
 </head>
 
@@ -223,7 +227,7 @@
         <button class="control-btn play-btn" id="play-pause-btn">▶</button>
         <button class="control-btn" id="next-btn">⏭</button>
       </div>
-      <div class="volume-row">
+      <div class="volume-row" id="volume-row">
         <span class="volume-icon" id="dynamic-volume-icon" title="Mute/Unmute">🔊</span>
         <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
       </div>
@@ -275,6 +279,8 @@
     const volumeSlider = document.getElementById('volume-slider')
     const dynamicVolumeIcon = document.getElementById('dynamic-volume-icon')
     const customPlayerControls = document.getElementById('custom-player')
+    const volumeRow = document.getElementById('volume-row')
+    const isMobile = matchMedia('(pointer: coarse)').matches
 
     const PLAY_ICON = '▶'
     const PAUSE_ICON = '❚❚'
@@ -367,61 +373,35 @@
       if (index !== -1) loadAndPlay(index)
     })
 
-    const updateVolumeIcon = (vol) => {
-      dynamicVolumeIcon.innerText = vol === 0 ? '🔇' : vol < 0.35 ? '🔈' : vol < 0.75 ? '🔉' : '🔊'
-    }
-
     const applyVolume = (vol) => {
       vol = Math.max(0, Math.min(1, vol))
-
       audioPlayer.volume = vol
       volumeSlider.value = vol
-      updateVolumeIcon(vol)
-
+      dynamicVolumeIcon.innerText = vol === 0 ? '🔇' : vol < 0.35 ? '🔈' : vol < 0.75 ? '🔉' : '🔊'
       if (vol > 0) lastVolume = vol
       localStorage.setItem(LOCAL_STORAGE_KEY, vol)
     }
 
-    const savedVolume = localStorage.getItem(LOCAL_STORAGE_KEY)
-    if (savedVolume !== null) {
-      applyVolume(parseFloat(savedVolume))
+    if (isMobile) {
+      audioPlayer.volume = 1
+      volumeRow.style.display = 'none'
     } else {
-      applyVolume(1)
+      const savedVolume = localStorage.getItem(LOCAL_STORAGE_KEY)
+      applyVolume(savedVolume !== null ? parseFloat(savedVolume) : 1)
+
+      volumeSlider.addEventListener('input', (e) => {
+        applyVolume(parseFloat(e.target.value))
+      })
+
+      dynamicVolumeIcon.addEventListener('click', () => {
+        applyVolume(audioPlayer.volume > 0 ? 0 : lastVolume)
+      })
+
+      customPlayerControls.addEventListener('wheel', (e) => {
+        e.preventDefault()
+        applyVolume(audioPlayer.volume + (e.deltaY < 0 ? 0.1 : -0.1))
+      }, { passive: false })
     }
-
-    volumeSlider.addEventListener('input', (e) => {
-      applyVolume(parseFloat(e.target.value))
-    })
-
-    dynamicVolumeIcon.addEventListener('click', () => {
-      applyVolume(audioPlayer.volume > 0 ? 0 : lastVolume)
-    })
-
-    customPlayerControls.addEventListener('wheel', (e) => {
-      e.preventDefault()
-      const STEP = 0.1
-      applyVolume(audioPlayer.volume + (e.deltaY < 0 ? STEP : -STEP))
-    }, { passive: false })
-
-    let touchLastY = 0
-
-    customPlayerControls.addEventListener('touchstart', (e) => {
-      touchLastY = e.touches[0].clientY
-    }, { passive: true })
-
-    customPlayerControls.addEventListener('touchmove', (e) => {
-      if (e.target === volumeSlider) return
-      e.preventDefault()
-
-      const currentY = e.touches[0].clientY
-      const deltaY = currentY - touchLastY
-
-      if (Math.abs(deltaY) > 8) {
-        const STEP = 0.05
-        applyVolume(audioPlayer.volume + (deltaY < 0 ? STEP : -STEP))
-        touchLastY = currentY
-      }
-    }, { passive: false })
   </script>
 </body>
 
