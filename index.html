@@ -209,6 +209,7 @@
     const volumeSlider = document.getElementById('volume-slider')
     const dynamicVolumeIcon = document.getElementById('dynamic-volume-icon')
     const PLAY_ICON = '▶'
+    const PAUSE_ICON = '❚❚'
     let currentIndex = -1
     let isPlaying = false
     let lastVolume = 1
@@ -227,7 +228,7 @@
       audioPlayer.play()
         .then(() => {
           statusText.innerText = activeItem.innerText.trim()
-          playPauseBtn.innerText = '❚❚'
+          playPauseBtn.innerText = PAUSE_ICON
           statusContainer.classList.add('is-playing')
           isPlaying = true
         })
@@ -252,7 +253,7 @@
         isPlaying = false
       } else {
         audioPlayer.play()
-        playPauseBtn.innerText = '❚❚'
+        playPauseBtn.innerText = PAUSE_ICON
         statusContainer.classList.add('is-playing')
         isPlaying = true
       }
