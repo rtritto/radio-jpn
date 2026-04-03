@@ -208,7 +208,6 @@
     const nextBtn = document.getElementById('next-btn')
     const volumeSlider = document.getElementById('volume-slider')
     const dynamicVolumeIcon = document.getElementById('dynamic-volume-icon')
-    const ERROR_MESSAGE = 'Stream error ❌'
     const PLAY_ICON = '▶'
     let currentIndex = -1
     let isPlaying = false
@@ -233,7 +232,6 @@
           isPlaying = true
         })
         .catch(() => {
-          statusText.innerText = ERROR_MESSAGE
           playPauseBtn.innerText = PLAY_ICON
           statusContainer.classList.remove('is-playing')
           isPlaying = false
@@ -323,7 +321,7 @@
 
     // Error Handling
     audioPlayer.addEventListener('error', () => {
-      statusText.innerText = ERROR_MESSAGE
+      statusText.innerText = 'Stream error ❌'
       playPauseBtn.innerText = PLAY_ICON
       statusContainer.classList.remove('is-playing')
       isPlaying = false
