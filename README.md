@@ -17,5 +17,8 @@ Initial D World
 Use reverse proxy
 - http://finalfantasystation.com:8000/stream from [Final Fantasy Radio](http://finalfantasyradio.co)
 
-- Volume scroll
-- Gesture next/prev
+- Gestures
+    - Next/Prev
+    - Volume control with
+- Loading on change Radio
+- Deploy on GitHub
