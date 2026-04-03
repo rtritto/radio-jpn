@@ -5,6 +5,8 @@ Radio from Japan 🇯🇵
 - [Radio Zeno - Phonk](https://zeno.fm/radio/phonk-radio)
 - [Radio Zeno - Initial D](https://zeno.fm/radio/initial-d)
 - [Anison FM](https://pool.anison.fm:9000/AniSonFM(320))
+- [Radio Blast!](https://redeblast.com)
+- [Ronin Radio](https://tunein.com/radio/Ronin-Radio-s296483)
 
 ### Alternatives
 Initial D World
@@ -16,6 +18,4 @@ Use reverse proxy
 - http://finalfantasystation.com:8000/stream from [Final Fantasy Radio](http://finalfantasyradio.co)
 
 - Volume scroll
-- Add volume icons
-- Pause = grey
-- Play = wave + green
+- Gesture next/prev
