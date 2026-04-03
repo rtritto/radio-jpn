@@ -31,12 +31,36 @@
       color: #1db954;
     }
 
-    .status {
-      text-align: center;
+    .status-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 0.9em;
       color: #aaaaaa;
       margin-bottom: 20px;
-      min-height: 20px;
+      min-height: 24px;
+      transition: color 0.3s ease;
+    }
+
+    .status-container.is-playing {
+      color: #1db954;
+      font-weight: bold;
+    }
+
+    .status-gif {
+      position: absolute;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .status-container.is-playing .status-gif {
+      opacity: 1;
+      visibility: visible;
     }
 
     .custom-player {
@@ -125,7 +149,10 @@
   <div class="player-container">
     <h2>Radio from Japan 🇯🇵</h2>
 
-    <div class="status" id="status-text">Select a Radio</div>
+    <div class="status-container" id="status-container">
+      <img src="./equaliser-animated-green.gif" alt="Playing" class="status-gif" id="status-gif">
+      <span id="status-text">Select a Radio</span>
+    </div>
 
     <audio id="main-audio" preload="none"></audio>
 
@@ -150,7 +177,7 @@
         📻 Radio Zeno - Phonk
       </li>
       <li data-url="https://stream-178.zeno.fm/u8r9xbvr5f0uv">
-        📻 Radio Zeno - Initial D
+        🚗 Radio Zeno - Initial D
       </li>
       <li data-url="https://pool.anison.fm:9000/AniSonFM(320)">
         📻 Anison FM
@@ -161,6 +188,7 @@
   <script>
     const audioPlayer = document.getElementById('main-audio')
     const playlistItems = document.querySelectorAll('#playlist li')
+    const statusContainer = document.getElementById('status-container')
     const statusText = document.getElementById('status-text')
     const playPauseBtn = document.getElementById('play-pause-btn')
     const prevBtn = document.getElementById('prev-btn')
@@ -187,11 +215,13 @@
         .then(() => {
           statusText.innerText = activeItem.innerText.trim()
           playPauseBtn.innerText = '❚❚'
+          statusContainer.classList.add('is-playing')
           isPlaying = true
         })
         .catch(() => {
           statusText.innerText = ERROR_MESSAGE
           playPauseBtn.innerText = PLAY_ICON
+          statusContainer.classList.remove('is-playing')
           isPlaying = false
         })
     }
@@ -206,12 +236,12 @@
       if (isPlaying) {
         audioPlayer.pause()
         playPauseBtn.innerText = PLAY_ICON
-        // statusText.innerText = 'Paused'
+        statusContainer.classList.remove('is-playing')
         isPlaying = false
       } else {
         audioPlayer.play()
         playPauseBtn.innerText = '❚❚'
-        statusText.innerText = playlistItems[currentIndex].innerText.trim()
+        statusContainer.classList.add('is-playing')
         isPlaying = true
       }
     })
@@ -248,6 +278,7 @@
     audioPlayer.addEventListener('error', () => {
       statusText.innerText = ERROR_MESSAGE
       playPauseBtn.innerText = PLAY_ICON
+      statusContainer.classList.remove('is-playing')
       isPlaying = false
     })
   </script>
