@@ -302,15 +302,7 @@
     })
 
     const updateVolumeIcon = (vol) => {
-      if (vol === 0) {
-        dynamicVolumeIcon.innerText = '🔇'
-      } else if (vol < 0.35) {
-        dynamicVolumeIcon.innerText = '🔈'
-      } else if (vol < 0.75) {
-        dynamicVolumeIcon.innerText = '🔉'
-      } else {
-        dynamicVolumeIcon.innerText = '🔊'
-      }
+      dynamicVolumeIcon.innerText = vol === 0 ? '🔇' : vol < 0.35 ? '🔈' : vol < 0.75 ? '🔉' : '🔊'
     }
 
     volumeSlider.addEventListener('input', (e) => {
@@ -352,7 +344,6 @@
 
       if (newVolume > 0) lastVolume = newVolume
     }, { passive: false })
-
   </script>
 </body>
 
