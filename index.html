@@ -163,7 +163,7 @@
 
     <audio id="main-audio" preload="none"></audio>
 
-    <div class="custom-player">
+    <div id="custom-player" class="custom-player">
       <div class="controls-row">
         <button class="control-btn" id="prev-btn">⏮</button>
         <button class="control-btn play-btn" id="play-pause-btn">▶</button>
@@ -207,6 +207,8 @@
     const nextBtn = document.getElementById('next-btn')
     const volumeSlider = document.getElementById('volume-slider')
     const dynamicVolumeIcon = document.getElementById('dynamic-volume-icon')
+    const customPlayerControls = document.getElementById('custom-player') 
+    
     const PLAY_ICON = '▶'
     const PAUSE_ICON = '❚❚'
     let currentIndex = -1
@@ -309,6 +311,29 @@
         audioPlayer.volume = lastVolume
         volumeSlider.value = lastVolume
         updateVolumeIcon(lastVolume)
+      }
+    })
+
+    customPlayerControls.addEventListener('wheel', (e) => {
+      e.preventDefault()
+      
+      const STEP = 0.1
+      let newVolume = audioPlayer.volume
+
+      if (e.deltaY < 0) {
+        newVolume += STEP
+      } else {
+        newVolume -= STEP
+      }
+
+      newVolume = Math.max(0, Math.min(1, newVolume))
+
+      audioPlayer.volume = newVolume
+      volumeSlider.value = newVolume
+      updateVolumeIcon(newVolume)
+
+      if (newVolume > 0) {
+        lastVolume = newVolume
       }
     })
 
