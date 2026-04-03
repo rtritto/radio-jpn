@@ -102,12 +102,20 @@
     .volume-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
     }
 
     .volume-icon {
-      font-size: 18px;
+      font-size: 20px;
       color: #aaaaaa;
+      cursor: pointer;
+      width: 24px;
+      text-align: center;
+      transition: color 0.2s;
+    }
+
+    .volume-icon:hover {
+      color: #ffffff;
     }
 
     input[type='range'] {
@@ -163,9 +171,8 @@
         <button class="control-btn" id="next-btn">⏭</button>
       </div>
       <div class="volume-row">
-        <span class="volume-icon">🔉</span>
+        <span class="volume-icon" id="dynamic-volume-icon" title="Mute/Unmute">🔊</span>
         <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
-        <span class="volume-icon">🔊</span>
       </div>
     </div>
 
@@ -194,11 +201,12 @@
     const prevBtn = document.getElementById('prev-btn')
     const nextBtn = document.getElementById('next-btn')
     const volumeSlider = document.getElementById('volume-slider')
+    const dynamicVolumeIcon = document.getElementById('dynamic-volume-icon')
     const ERROR_MESSAGE = 'Stream error ❌'
     const PLAY_ICON = '▶'
-
     let currentIndex = -1
     let isPlaying = false
+    let lastVolume = 1
 
     const loadAndPlay = (index) => {
       if (index < 0 || index >= playlistItems.length) return
@@ -226,7 +234,7 @@
         })
     }
 
-    // Play / Pause
+    // Play/Pause
     playPauseBtn.addEventListener('click', () => {
       if (currentIndex === -1) {
         loadAndPlay(0)
@@ -262,9 +270,42 @@
       loadAndPlay(newIndex)
     })
 
-    // Volume
+    const updateVolumeIcon = (vol) => {
+      if (vol === 0) {
+        dynamicVolumeIcon.innerText = '🔇'
+      } else if (vol < 0.35) {
+        dynamicVolumeIcon.innerText = '🔈'
+      } else if (vol < 0.75) {
+        dynamicVolumeIcon.innerText = '🔉'
+      } else {
+        dynamicVolumeIcon.innerText = '🔊'
+      }
+    }
+
+    // Input Slider Volume
     volumeSlider.addEventListener('input', (e) => {
-      audioPlayer.volume = e.target.value
+      const currentVolume = parseFloat(e.target.value)
+      audioPlayer.volume = currentVolume
+      updateVolumeIcon(currentVolume)
+      if (currentVolume > 0) {
+        // Update the last known volume
+        lastVolume = currentVolume
+      }
+    })
+
+    // Click on volume icon
+    dynamicVolumeIcon.addEventListener('click', () => {
+      if (audioPlayer.volume > 0) {
+        // Mute
+        audioPlayer.volume = 0
+        volumeSlider.value = 0
+        updateVolumeIcon(0)
+      } else {
+        // Restore previous volume
+        audioPlayer.volume = lastVolume
+        volumeSlider.value = lastVolume
+        updateVolumeIcon(lastVolume)
+      }
     })
 
     // Click on Playlist
