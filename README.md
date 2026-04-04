@@ -25,4 +25,5 @@ Use reverse proxy
 - Save custom order of playlist in localStorage
 - PWA
 - Android Auto
-- Recall 
+- Recall
+- Create favicon.svg
