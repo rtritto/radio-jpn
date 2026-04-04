@@ -8,9 +8,13 @@
   "files.insertFinalNewline": true,
   "git.mergeEditor": false,
   "search.exclude": {
-    "**/.vscode": true
+    "**/.vscode": true,
+    "**/.yarn": true,
+    "**/.pnp.*": true
   },
   "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "window.commandCenter": false,
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
