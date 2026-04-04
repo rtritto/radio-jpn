@@ -283,7 +283,8 @@
         <img src="./public/initial-d-world.jpg" class="list-thumb" alt="Initial D">
         <span>Radio Zeno - Initial D</span>
       </li>
-      <li data-url="https://pool.anison.fm:9000/AniSonFM(320)">
+      <li data-url="https://pool.anison.fm:9000/AniSonFM(320)" data-api="https://meta.fmcube.net/ansion_fm_current.json"
+        data-name="anison">
         <img src="./public/anison.png" class="list-thumb" alt="Anison">
         <span>Anison FM</span>
       </li>
@@ -333,7 +334,8 @@
     const MAP_METADATA = {
       public_radio: (data) => data.current_track.title,
       laut_fm: (data) => `${data.artist.name} - ${data.title}`,
-      zeno: (data) => data.streamTitle
+      zeno: (data) => data.streamTitle,
+      anison: (data) => `${data.artist} - ${data.title}`
     }
 
     const stopMetadataTracking = () => {
