@@ -376,13 +376,10 @@
           try {
             const response = await fetch(apiUrl)
             const data = await response.json()
+            const nextDelay = radioName === 'laut_fm' && data.ends_at
+              ? new Date(data.ends_at).getTime() - Date.now()
+              : 10000
             trackInfo.innerText = MAP_METADATA[radioName](data)
-
-            let nextDelay = 10000
-            if (radioName === 'laut_fm' && data.ends_at) {
-              const endTime = new Date(data.ends_at).getTime()
-              nextDelay = endTime - Date.now()
-            }
             metadataTimeout = setTimeout(fetchCurrentMeta, nextDelay)
           } catch (err) {
             console.error('Fetch Metadata Error:', err)
