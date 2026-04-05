@@ -18,6 +18,10 @@
   - https://tunein.com/radio/Ronin-Radio-s296483
 - Nami Radio
   - https://fmcube.net/radio/nami
+- Anime FM (laut) Radio
+  - https://fmcube.net/radio/anime-fm-laut
+- Dendy-Collection Radio
+  - https://fmcube.net/radio/dendy-collection
 
 ### Alternatives
 - Radio Zeno
@@ -26,6 +30,8 @@
   - http://165.227.19.100:9001/listen.aac from [Initial D World](https://idforums.net)
   - https://stream-165.zeno.fm/u8r9xbvr5f0uv from [The One Stop Radio - Initial D World](https://theonestopradio.com/radio/initial-d-world-radio)
   - https://stream-178.zeno.fm/u8r9xbvr5f0uv from [Radio Zeno - Initial D](https://zeno.fm/radio/initial-d)
+- FMCUBE FM
+  - https://stream.pcradio.ru/<ID> is equal to https://stream03.pcradio.biz
 
 ### TODO
 Use reverse proxy
