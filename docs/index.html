@@ -522,8 +522,18 @@
         loadAndPlay(0)
         return
       }
-      if (!audioPlayer.paused) audioPlayer.pause()
-      else audioPlayer.play()
+      if (!audioPlayer.paused) {
+        audioPlayer.pause()
+        audioPlayer.removeAttribute('src')
+        audioPlayer.load()
+        statusContainer.classList.remove('is-playing')
+        playPauseBtn.innerText = PLAY_ICON
+      } else {
+        const activeItem = playlistItems[currentIndex]
+        audioPlayer.src = activeItem.getAttribute('data-url')
+        statusContainer.classList.add('is-loading')
+        audioPlayer.play().catch(() => { })
+      }
     })
 
     prevBtn.addEventListener('click', () => {
