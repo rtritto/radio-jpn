@@ -339,12 +339,48 @@
 
     let metadataTimeout = null
     let metadataSSE = null
+    let currentTrackString = ''
 
     const MAP_METADATA = {
       public: (data) => data.current_track.title,
       laut: (data) => `${data.artist.name} - ${data.title}`,
       zeno: (data) => data.streamTitle,
       fmcube: (data) => `${data.artist} - ${data.title}`
+    }
+
+    const updateMainLogo = (src) => {
+      if (mainLogo.src === src) return
+      mainLogo.style.opacity = 0
+      setTimeout(() => {
+        mainLogo.src = src
+        mainLogo.style.opacity = 1
+      }, 150)
+    }
+
+    const fetchAndSetCoverArt = async (query) => {
+      const activeItem = playlistItems[currentIndex]
+      const defaultRadioLogo = activeItem ? activeItem.querySelector('img').src : ''
+
+      if (!query) {
+        updateMainLogo(defaultRadioLogo)
+        return
+      }
+
+      try {
+        const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=1&explicit=No`
+        const response = await fetch(url)
+        const data = await response.json()
+
+        if (data.resultCount > 0 && data.results[0].artworkUrl100) {
+          const highResCover = data.results[0].artworkUrl100.replace('100x100bb.jpg', '180x180bb.jpg')
+          updateMainLogo(highResCover)
+        } else {
+          updateMainLogo(defaultRadioLogo)
+        }
+      } catch (err) {
+        console.error('iTunes API Error:', err)
+        updateMainLogo(defaultRadioLogo)
+      }
     }
 
     const stopMetadataTracking = () => {
@@ -366,12 +402,20 @@
         return
       }
 
+      const handleNewTrackData = (data) => {
+        const newTrack = MAP_METADATA[radioName](data)
+        if (newTrack !== currentTrackString) {
+          currentTrackString = newTrack
+          trackInfo.innerText = newTrack
+          fetchAndSetCoverArt(newTrack)
+        }
+      };
+
       if (radioName === 'zeno') {
         metadataSSE = new EventSource(apiUrl)
         metadataSSE.onmessage = (event) => {
           try {
-            const data = JSON.parse(event.data)
-            trackInfo.innerText = MAP_METADATA[radioName](data)
+            handleNewTrackData(JSON.parse(event.data))
           } catch (err) {
             console.error('Zeno Parse Error:', err)
           }
@@ -379,24 +423,22 @@
         metadataSSE.onerror = () => {
           console.warn('Lost connection, reconnecting…')
         }
-
       } else {
         const fetchCurrentMeta = async () => {
           try {
             const response = await fetch(apiUrl)
             const data = await response.json()
-            const nextDelay = radioName === 'laut' && data.ends_at
+            handleNewTrackData(data)
+            metadataTimeout = setTimeout(fetchCurrentMeta, radioName === 'laut' && data.ends_at
               ? new Date(data.ends_at).getTime() - Date.now()
               : 10000
-            trackInfo.innerText = MAP_METADATA[radioName](data)
-            metadataTimeout = setTimeout(fetchCurrentMeta, nextDelay)
+            )
           } catch (err) {
             console.error('Fetch Metadata Error:', err)
             trackInfo.innerText = `${ERROR_ICON} Metadata error`
             metadataTimeout = setTimeout(fetchCurrentMeta, 10000)
           }
         }
-
         fetchCurrentMeta()
       }
     }
@@ -439,17 +481,15 @@
 
       currentIndex = index
       stopMetadataTracking()
+
+      currentTrackString = ''
       trackInfo.innerText = ''
 
       playlistItems.forEach(li => li.classList.remove('active'))
       const activeItem = playlistItems[currentIndex]
       activeItem.classList.add('active')
 
-      mainLogo.style.opacity = 0
-      setTimeout(() => {
-        mainLogo.src = activeItem.querySelector('img').src
-        mainLogo.style.opacity = 1
-      }, 150)
+      updateMainLogo(activeItem.querySelector('img').src)
 
       statusText.innerText = activeItem.querySelector('span').innerText.trim()
 
