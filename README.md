@@ -28,6 +28,10 @@
     - https://laut.fm/phonk
   - Phonk Radio
     - https://zeno.fm/radio/phonk-radio
+- Rock
+  - Virgin Radio
+    - https://www.virginradio.it/radio-onair
+    - https://ascoltareradio.com/virgin
 - Pop
   - badradio
     - https://www.badradio.nz
