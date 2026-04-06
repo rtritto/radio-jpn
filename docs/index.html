@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./public/favicon.ico">
   <title>Radio Playlist</title>
 
@@ -451,6 +452,29 @@
     let metadataSSE = null
     let currentTrackString = ''
 
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js')
+        .catch(err => console.log('SW reg error:', err))
+      )
+    }
+
+    const updateMediaSession = (title, artist, artworkUrl) => {
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title || 'Ascoltando la Radio',
+          artist: artist || 'Live Stream',
+          artwork: [{ src: artworkUrl || mainLogo.src, sizes: '512x512', type: 'image/jpeg' }]
+        })
+      }
+    }
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => playPauseBtn.click())
+      navigator.mediaSession.setActionHandler('pause', () => playPauseBtn.click())
+      navigator.mediaSession.setActionHandler('previoustrack', () => prevBtn.click())
+      navigator.mediaSession.setActionHandler('nexttrack', () => nextBtn.click())
+    }
+
     for (const btn of tabBtns) {
       btn.addEventListener('click', () => {
         for (const b of tabBtns) b.classList.remove('active')
@@ -482,6 +506,7 @@
       setTimeout(() => {
         mainLogo.src = src
         mainLogo.style.opacity = 1
+        updateMediaSession(currentTrackString, statusText.innerText, src)
       }, 150)
     }
 
@@ -500,7 +525,7 @@
         const data = await response.json()
 
         if (data.resultCount > 0 && data.results[0].artworkUrl100) {
-          const highResCover = data.results[0].artworkUrl100.replace('100x100bb.jpg', '180x180bb.jpg')
+          const highResCover = data.results[0].artworkUrl100.replace('100x100bb.jpg', '512x512bb.jpg')
           updateMainLogo(highResCover)
         } else {
           updateMainLogo(defaultRadioLogo)
@@ -595,6 +620,8 @@
       const currentApi = activeItem.getAttribute('data-api')
       const currentRadioName = activeItem.getAttribute('data-name')
       startMetadataTracking(currentApi, currentRadioName)
+
+      updateMediaSession(currentTrackString, statusText.innerText, mainLogo.src)
     })
 
     audioPlayer.addEventListener('pause', () => {

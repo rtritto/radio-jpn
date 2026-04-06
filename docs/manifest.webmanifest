@@ -1,0 +1,1 @@
+{"name":"Radio Playlist","short_name":"WebRadio","description":"Playlist of Radio Stations","start_url":"./index.html","display":"standalone","background_color":"#121212","theme_color":"#1db954","icons":[{"src":"./public/favicon.ico","sizes":"32x32","type":"image/x-icon"}]}
