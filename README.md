@@ -1,34 +1,39 @@
 ## Radio Playlist
-- badradio
-  - https://www.badradio.nz
-- laut.fm - Phonk
-  - https://laut.fm/phonk
-- Radio Zeno - Phonk
-  - https://zeno.fm/radio/phonk-radio
-- Initial D World
-  - https://idforums.net
-  - https://zeno.fm/radio/initial-d
-  - https://theonestopradio.com/radio/initial-d-world-radio
-- Anison FM
-  - https://en.anison.fm
-  - https://fmcube.net/radio/anison-fm
-- Radio Blast!
-  - https://redeblast.com
-- Ronin Radio
-  - https://tunein.com/radio/Ronin-Radio-s296483
-- Nami Radio
-  - https://fmcube.net/radio/nami
-- Anime FM (laut) Radio
-  - https://fmcube.net/radio/anime-fm-laut
-- Dendy-Collection Radio
-  - https://fmcube.net/radio/dendy-collection
-- Animecol Radio
-  - https://www.radioexpresolatino.com/index.php/musica/animecol
-- AnimeRadio
-  - https://www.animeradio.de
-  - https://fmcube.net/radio/animeradio-de
-- RDS
-  - https://ascoltareradio.com/rds
+- Anime
+  - Initial D World
+    - https://idforums.net
+    - https://zeno.fm/radio/initial-d
+    - https://theonestopradio.com/radio/initial-d-world-radio
+  - Anison FM
+    - https://en.anison.fm
+    - https://fmcube.net/radio/anison-fm
+  - Radio Blast!
+    - https://redeblast.com
+  - Ronin Radio
+    - https://tunein.com/radio/Ronin-Radio-s296483
+  - Nami Radio
+    - https://fmcube.net/radio/nami
+  - Anime FM (laut) Radio
+    - https://fmcube.net/radio/anime-fm-laut
+  - Animecol Radio
+    - https://www.radioexpresolatino.com/index.php/musica/animecol
+  - AnimeRadio
+    - https://www.animeradio.de
+    - https://fmcube.net/radio/animeradio-de
+- Games
+  - Dendy-Collection Radio
+    - https://fmcube.net/radio/dendy-collection
+- Phonk
+  - laut.fm - Phonk
+    - https://laut.fm/phonk
+  - Phonk Radio
+    - https://zeno.fm/radio/phonk-radio
+- Pop
+  - badradio
+    - https://www.badradio.nz
+- ITA
+  - RDS
+    - https://ascoltareradio.com/rds
 
 ### Alternatives
 - Radio Zeno
