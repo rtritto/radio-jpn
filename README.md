@@ -27,6 +27,8 @@
 - AnimeRadio
   - https://www.animeradio.de
   - https://fmcube.net/radio/animeradio-de
+- RDS
+  - https://ascoltareradio.com/rds
 
 ### Alternatives
 - Radio Zeno

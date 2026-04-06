@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./public/favicon.ico">
   <title>Radio Playlist</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -330,6 +333,11 @@
         <img src="./public/animecol.jpg" class="list-thumb" alt="Animecol Radio">
         <span>Animecol Radio</span>
       </li>
+      <li data-url="https://stream.rds.radio/audio/rds.stream_aac/chunklist.m3u8"
+        data-api="https://api.instant.audio/data/playlist/34/rds" data-name="ascoltareradio">
+        <img src="./public/rds.png" class="list-thumb" alt="RDS">
+        <span>RDS</span>
+      </li>
     </ul>
   </div>
 
@@ -360,7 +368,7 @@
 
     let currentIndex = -1
     let lastVolume = 1
-
+    let hlsInstance = null
     let metadataTimeout = null
     let metadataSSE = null
     let currentTrackString = ''
@@ -370,7 +378,8 @@
       laut: (data) => `${data.artist.name} - ${data.title}`,
       zeno: (data) => data.streamTitle,
       fmcube: (data) => `${data.artist} - ${data.title}`,
-      animeradio: (data) => `${data.songHistoryList[0].artist} - ${data.songHistoryList[0].title}`
+      animeradio: (data) => `${data.songHistoryList[0].artist} - ${data.songHistoryList[0].title}`,
+      ascoltareradio: (data) => `${data.result[0].track_artist} - ${data.result[0].track_title}`
     }
 
     const updateMainLogo = (src) => {
@@ -405,6 +414,13 @@
       } catch (err) {
         console.error('iTunes API Error:', err)
         updateMainLogo(defaultRadioLogo)
+      }
+    }
+
+    const destroyHls = () => {
+      if (hlsInstance) {
+        hlsInstance.destroy()
+        hlsInstance = null
       }
     }
 
@@ -505,7 +521,12 @@
       if (index < 0 || index >= playlistItems.length) return
 
       currentIndex = index
+
       stopMetadataTracking()
+      destroyHls()
+
+      audioPlayer.removeAttribute('src')
+      audioPlayer.load()
 
       currentTrackString = ''
       trackInfo.innerText = ''
@@ -523,8 +544,29 @@
       statusGif.src = URL_GIF_LOADING
       playPauseBtn.innerText = PAUSE_ICON
 
-      audioPlayer.src = activeItem.getAttribute('data-url')
-      audioPlayer.play().catch(() => { })
+      const url = activeItem.getAttribute('data-url')
+
+      if (url.includes('.m3u8')) {
+        if (Hls.isSupported()) {
+          hlsInstance = new Hls()
+          hlsInstance.loadSource(url)
+          hlsInstance.attachMedia(audioPlayer)
+          hlsInstance.on(Hls.Events.MANIFEST_PARSED, function () {
+            audioPlayer.play().catch(() => { })
+          })
+          hlsInstance.on(Hls.Events.ERROR, function (event, data) {
+            if (data.fatal) {
+              audioPlayer.dispatchEvent(new Event('error'))
+            }
+          })
+        } else if (audioPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+          audioPlayer.src = url
+          audioPlayer.play().catch(() => { })
+        }
+      } else {
+        audioPlayer.src = url
+        audioPlayer.play().catch(() => { })
+      }
     }
 
     playPauseBtn.addEventListener('click', () => {
@@ -536,13 +578,11 @@
         audioPlayer.pause()
         audioPlayer.removeAttribute('src')
         audioPlayer.load()
+        destroyHls()
         statusContainer.classList.remove('is-playing')
         playPauseBtn.innerText = PLAY_ICON
       } else {
-        const activeItem = playlistItems[currentIndex]
-        audioPlayer.src = activeItem.getAttribute('data-url')
-        statusContainer.classList.add('is-loading')
-        audioPlayer.play().catch(() => { })
+        loadAndPlay(currentIndex)
       }
     })
 
