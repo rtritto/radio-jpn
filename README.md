@@ -34,8 +34,8 @@
   - https://stream.pcradio.ru/<ID> is equal to https://stream03.pcradio.biz
 
 ### TODO
-Use reverse proxy
-- http://finalfantasystation.com:8000/stream from [Final Fantasy Radio](http://finalfantasyradio.co)
+- Use reverse proxy
+  - http://finalfantasystation.com:8000/stream from [Final Fantasy Radio](http://finalfantasyradio.co)
 
 - Gestures
     - Next/Prev
