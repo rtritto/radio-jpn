@@ -29,7 +29,7 @@
   - Phonk Radio
     - https://zeno.fm/radio/phonk-radio
 - Rock
-  - Virgin Radio
+  - Virgin Radio Italy
     - https://www.virginradio.it/radio-onair
     - https://ascoltareradio.com/virgin
 - Pop
