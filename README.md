@@ -4,7 +4,7 @@
     - https://idforums.net
     - https://zeno.fm/radio/initial-d
     - https://theonestopradio.com/radio/initial-d-world-radio
-  - Anime (laut.fm)
+  - Anime
     - https://laut.fm/anime
   - Anison FM
     - https://en.anison.fm
@@ -16,12 +16,12 @@
     - https://tunein.com/radio/Ronin-Radio-s296483
   - Nami Radio
     - https://fmcube.net/radio/nami
-  - Anime FM (laut.fm)
+  - Anime FM
     - https://laut.fm/animefm
     - https://fmcube.net/radio/anime-fm-laut
-  - Anime Radio Switzerland (laut.fm)
+  - Anime Radio Switzerland
     - https://laut.fm/anime-radio-switzerland
-  - Geheimwelt (laut.fm)
+  - Geheimwelt
     - https://laut.fm/geheimwelt
   - Animklatu
     - https://laut.fm/animklatu
@@ -34,7 +34,7 @@
   - Dendy-Collection Radio
     - https://fmcube.net/radio/dendy-collection
 - Phonk
-  - Phonk (laut.fm)
+  - Phonk
     - https://laut.fm/phonk
   - Phonk Radio
     - https://zeno.fm/radio/phonk-radio
@@ -50,7 +50,7 @@
     - https://ascoltareradio.com/rds
 
 ### Alternatives
-- Anime FM (laut.fm)
+- Anime FM
   - https://anime.stream.laut.fm/animefm from [laut.fm](https://laut.fm/animefm)
   - https://stream.pcradio.ru/animefm-med from [PCRADIO](https://pcradio.app/radio/anime-fm-laut)
 - Radio Zeno
