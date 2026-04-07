@@ -43,6 +43,9 @@
     - https://ascoltareradio.com/rds
 
 ### Alternatives
+- Anime FM (laut.fm)
+  - https://anime.stream.laut.fm/animefm from [laut.fm](https://laut.fm/animefm)
+  - https://stream.pcradio.ru/animefm-med from [PCRADIO](https://pcradio.app/radio/anime-fm-laut)
 - Radio Zeno
   - https://stream-.zeno.fm/<ID> is equal to https://stream-152.zeno.fm/<ID>
 - Initial D World
