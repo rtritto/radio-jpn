@@ -13,10 +13,10 @@
     - https://tunein.com/radio/Ronin-Radio-s296483
   - Nami Radio
     - https://fmcube.net/radio/nami
-  - Anime FM (laut.fm) Radio
+  - Anime FM (laut.fm)
     - https://laut.fm/animefm
     - https://fmcube.net/radio/anime-fm-laut
-  - Geheimwelt
+  - Geheimwelt (laut.fm)
     - https://laut.fm/geheimwelt
   - Animecol Radio
     - https://www.radioexpresolatino.com/index.php/musica/animecol
@@ -27,7 +27,7 @@
   - Dendy-Collection Radio
     - https://fmcube.net/radio/dendy-collection
 - Phonk
-  - laut.fm - Phonk
+  - Phonk (laut.fm)
     - https://laut.fm/phonk
   - Phonk Radio
     - https://zeno.fm/radio/phonk-radio
