@@ -16,6 +16,8 @@
   - Anime FM (laut.fm) Radio
     - https://laut.fm/animefm
     - https://fmcube.net/radio/anime-fm-laut
+  - Geheimwelt
+    - https://laut.fm/geheimwelt
   - Animecol Radio
     - https://www.radioexpresolatino.com/index.php/musica/animecol
   - AnimeRadio
