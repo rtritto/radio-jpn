@@ -6,6 +6,7 @@
     - https://theonestopradio.com/radio/initial-d-world-radio
   - Anison FM
     - https://en.anison.fm
+    - https://laut.fm/animefm
     - https://fmcube.net/radio/anison-fm
   - Radio Blast!
     - https://redeblast.com
