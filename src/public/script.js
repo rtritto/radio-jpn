@@ -30,12 +30,6 @@ let metadataTimeout = null
 let metadataSSE = null
 let currentTrackString = ''
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js')
-    .catch(err => console.log('SW reg error:', err))
-  )
-}
-
 const updateMediaSession = (title, artist, artworkUrl) => {
   if ('mediaSession' in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({
