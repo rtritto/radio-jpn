@@ -1,4 +1,4 @@
-import './assets/styles.css'
+import './styles.css'
 
 const audioPlayer = document.getElementById('main-audio')
 const playlist = document.getElementById('playlist')
