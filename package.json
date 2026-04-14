@@ -16,6 +16,7 @@
     "@yarnpkg/sdks": "^3.2.3",
     "typescript": "^6.0.2",
     "vite": "^8.0.3",
+    "vite-plugin-html-minifier": "^1.0.5",
     "vite-plugin-pwa": "https://pkg.pr.new/vite-plugin-pwa@924"
   }
 }
