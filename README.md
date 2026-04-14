@@ -19,6 +19,7 @@
   - Anime FM
     - https://laut.fm/animefm
     - https://fmcube.net/radio/anime-fm-laut
+    - https://theonestopradio.com/radio/animefm_de
   - Anime Radio Switzerland
     - https://laut.fm/anime-radio-switzerland
   - purepure
@@ -31,6 +32,7 @@
   - AnimeRadio
     - https://www.animeradio.de
     - https://fmcube.net/radio/animeradio-de
+    - https://theonestopradio.com/radio/anime_radio_de
   - AnimeRadio.
     - http://anime.com.ru/modules.php
     - https://theonestopradio.com/radio/animeradio
