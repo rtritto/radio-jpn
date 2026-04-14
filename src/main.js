@@ -21,11 +21,13 @@ const isMobile = matchMedia('(pointer: coarse)').matches
 const PLAY_ICON = '▶'
 const PAUSE_ICON = '❚❚'
 const ERROR_ICON = '❌'
+const LOCAL_STORAGE_VOLUME_KEY = 'radio_playlist_volume'
 const URL_GIF_PLAYING = '/radio-playlist/public/equaliser-animated-green.gif'
 const URL_GIF_LOADING = '/radio-playlist/public/loading.gif'
 const loadingGif = new Image()
 loadingGif.src = URL_GIF_LOADING
-const LOCAL_STORAGE_VOLUME_KEY = 'radio_playlist_volume'
+const playingGif = new Image()
+playingGif.src = URL_GIF_PLAYING
 
 let currentIndex = -1
 let lastVolume = 1
