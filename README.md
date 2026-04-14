@@ -25,11 +25,14 @@
     - https://laut.fm/geheimwelt
   - Animklatu
     - https://laut.fm/animklatu
-  - Animecol Radio
-    - https://www.radioexpresolatino.com/index.php/musica/animecol
   - AnimeRadio
     - https://www.animeradio.de
     - https://fmcube.net/radio/animeradio-de
+  - AnimeRadio.
+    - http://anime.com.ru/modules.php
+    - https://theonestopradio.com/radio/animeradio
+  - Animecol Radio
+    - https://www.radioexpresolatino.com/index.php/musica/animecol
 - Games
   - Dendy-Collection Radio
     - https://fmcube.net/radio/dendy-collection
@@ -48,6 +51,9 @@
 - ITA
   - RDS
     - https://ascoltareradio.com/rds
+
+### Completed
+- laut.fm
 
 ### Alternatives
 - Anime FM
