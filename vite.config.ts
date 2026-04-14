@@ -2,6 +2,7 @@ import type { UserConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default {
+  base: '/radio-playlist/',
   root: 'src',
   cacheDir: '../.vite',
   server: {
