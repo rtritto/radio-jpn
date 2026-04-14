@@ -7,7 +7,6 @@ const tabBtns = document.querySelectorAll('.tab-btn')
 const statusContainer = document.getElementById('status-container')
 const statusText = document.getElementById('status-text')
 const trackInfo = document.getElementById('track-info')
-const statusGif = document.getElementById('status-gif')
 const mainLogo = document.getElementById('main-logo')
 const playPauseBtn = document.getElementById('play-pause-btn')
 const prevBtn = document.getElementById('prev-btn')
@@ -22,12 +21,6 @@ const PLAY_ICON = '▶'
 const PAUSE_ICON = '❚❚'
 const ERROR_ICON = '❌'
 const LOCAL_STORAGE_VOLUME_KEY = 'radio_playlist_volume'
-const URL_GIF_PLAYING = '/radio-playlist/public/equaliser-animated-green.gif'
-const URL_GIF_LOADING = '/radio-playlist/public/loading.gif'
-const loadingGif = new Image()
-loadingGif.src = URL_GIF_LOADING
-const playingGif = new Image()
-playingGif.src = URL_GIF_PLAYING
 
 let currentIndex = -1
 let lastVolume = 1
@@ -188,7 +181,6 @@ const startMetadataTracking = (apiUrl, radioName) => {
 const doLoading = () => {
   statusContainer.classList.remove('is-playing')
   statusContainer.classList.add('is-loading')
-  statusGif.src = URL_GIF_LOADING
   playPauseBtn.innerText = PAUSE_ICON
 }
 
@@ -197,7 +189,6 @@ audioPlayer.addEventListener('waiting', doLoading)
 audioPlayer.addEventListener('playing', () => {
   statusContainer.classList.remove('is-loading')
   statusContainer.classList.add('is-playing')
-  statusGif.src = URL_GIF_PLAYING
   playPauseBtn.innerText = PAUSE_ICON
 
   const activeItem = playlistItems[currentIndex]
