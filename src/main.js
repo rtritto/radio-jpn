@@ -1,3 +1,5 @@
+import './assets/styles.css'
+
 const audioPlayer = document.getElementById('main-audio')
 const playlist = document.getElementById('playlist')
 const playlistItems = Array.from(playlist.children)

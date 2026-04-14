@@ -11,7 +11,8 @@ export default {
   build: {
     target: 'esnext',
     outDir: '../docs',
-    minify: true
+    minify: true,
+    emptyOutDir: true
   },
   plugins: [
     VitePWA({
