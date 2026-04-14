@@ -185,12 +185,14 @@ const startMetadataTracking = (apiUrl, radioName) => {
   }
 }
 
-audioPlayer.addEventListener('waiting', () => {
+const doLoading = () => {
   statusContainer.classList.remove('is-playing')
   statusContainer.classList.add('is-loading')
   statusGif.src = URL_GIF_LOADING
   playPauseBtn.innerText = PAUSE_ICON
-})
+}
+
+audioPlayer.addEventListener('waiting', doLoading)
 
 audioPlayer.addEventListener('playing', () => {
   statusContainer.classList.remove('is-loading')
@@ -244,10 +246,7 @@ const loadAndPlay = (index) => {
 
   statusText.innerText = activeItem.querySelector('span').innerText.trim()
 
-  statusContainer.classList.remove('is-playing')
-  statusContainer.classList.add('is-loading')
-  statusGif.src = URL_GIF_LOADING
-  playPauseBtn.innerText = PAUSE_ICON
+  doLoading()
 
   const url = activeItem.getAttribute('data-url')
 
