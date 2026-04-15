@@ -45,6 +45,9 @@
     - https://theonestopradio.com/radio/animeradio
   - Animecol Radio
     - https://www.radioexpresolatino.com/index.php/musica/animecol
+  - Otaku Music Radio
+    - https://www.otakumusicradio.com/
+    - https://theonestopradio.com/radio/otaku_music_radio_es
 - Games
   - Dendy-Collection Radio
     - https://fmcube.net/radio/dendy-collection
