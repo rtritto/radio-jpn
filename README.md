@@ -74,6 +74,7 @@
     - https://laut.fm/hentai_radio
     - https://onlineradiobox.com/de/hentai
     - https://radiospinner.com/stations/hentai-radio-27332
+    - https://theonestopradio.com/radio/hentai_radio_de
   - Anima (MAnime.de)
     - https://www.manime.de
     - https://laut.fm/anima
