@@ -77,12 +77,16 @@ for (const btn of tabBtns) {
 }
 
 const MAP_METADATA = {
-  public: (data) => data.current_track.title,
-  laut: (data) => `${data.artist.name} - ${data.title}`,
-  zeno: (data) => data.streamTitle,
-  fmcube: (data) => `${data.artist} - ${data.title}`,
-  animeradio: (data) => `${data.songHistoryList[0].artist} - ${data.songHistoryList[0].title}`,
-  ascoltareradio: (data) => `${data.result[0].track_artist} - ${data.result[0].track_title}`
+  public: (data) => ({ title: data.current_track.title }),
+  laut: (data) => ({ title: `${data.artist.name} - ${data.title}` }),
+  zeno: (data) => ({ title: data.streamTitle }),
+  fmcube: (data) => ({ title: `${data.artist} - ${data.title}` }),
+  animeradio: (data) => ({ title: `${data.songHistoryList[0].artist} - ${data.songHistoryList[0].title}` }),
+  ascoltareradio: (data) => ({ title: `${data.result[0].track_artist} - ${data.result[0].track_title}` }),
+  jetix: (data) => ({
+    title: `${data.now_playing.song.artist} - ${data.now_playing.song.title}`,
+    cover: data.now_playing.song.art
+  })
 }
 
 const updateMainLogo = (src) => {
@@ -148,11 +152,11 @@ const startMetadataTracking = (apiUrl, radioName) => {
   }
 
   const handleNewTrackData = (data) => {
-    const newTrack = MAP_METADATA[radioName](data)
-    if (newTrack !== currentTrackString) {
-      currentTrackString = newTrack
-      trackInfo.innerText = newTrack
-      fetchAndSetCoverArt(newTrack)
+    const { title, cover } = MAP_METADATA[radioName](data)
+    if (title !== currentTrackString) {
+      currentTrackString = title
+      trackInfo.innerText = title
+      if (!cover) fetchAndSetCoverArt(title)
     }
   }
 

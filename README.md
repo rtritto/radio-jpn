@@ -62,6 +62,10 @@
 - Pop
   - badradio
     - https://www.badradio.nz
+- Mix
+  - Radio-Jetix
+    - https://onlineradiobox.com/de/jetixbase
+    - https://radiostream01.anineko.moe/public/radio-jetix
 - ITA
   - RDS
     - https://ascoltareradio.com/rds
