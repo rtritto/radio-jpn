@@ -21,6 +21,7 @@
     - https://fmcube.net/radio/anime-fm-laut
     - https://theonestopradio.com/radio/animefm_de
     - https://onlineradiobox.com/de/animefm
+    - https://onlineradiobox.com/de/einherzfurmangaundanime
   - Anime Radio Switzerland
     - https://laut.fm/anime-radio-switzerland
   - purepure
