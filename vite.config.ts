@@ -31,7 +31,7 @@ export default {
         background_color: '#121212',
         icons: [
           {
-            src: '/public/logo.svg',
+            src: '/radio-playlist/public/logo.svg',
             type: 'image/svg+xml',
             sizes: 'any'
           }
