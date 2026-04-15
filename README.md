@@ -67,6 +67,10 @@
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
     - https://radiostream01.anineko.moe/public/radio-jetix
+  - Hentai Radio
+    - https://laut.fm/hentai_radio
+    - https://onlineradiobox.com/de/hentai
+    - https://radiospinner.com/stations/hentai-radio-27332
 - ITA
   - RDS
     - https://ascoltareradio.com/rds
