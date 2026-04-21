@@ -36,6 +36,10 @@
     - https://zeno.fm/radio/radioanimeparati
     - https://theonestopradio.com/radio/anime_para_ti_radio_cl
     - https://www.radio.net/s/animeparati
+  - Radio Anime AX
+    - https://zeno.fm/radio/radio-animeax
+    - https://www.radio.net/s/radioanimeax
+    - https://theonestopradio.com/radio/radio_anime_ax_co-2-spa
   - purepure
     - https://laut.fm/purepure
     - https://theonestopradio.com/radio/purepure_de
