@@ -14,6 +14,7 @@
     - https://redeblast.com
   - Ronin Radio
     - https://tunein.com/radio/Ronin-Radio-s296483
+    - https://theonestopradio.com/radio/ronin_radio_us
   - Nami Radio
     - https://fmcube.net/radio/nami
   - Anime FM
@@ -53,7 +54,7 @@
     - https://www.otakumusicradio.com
     - https://theonestopradio.com/radio/otaku_music_radio_es
   - Tsumugi Radio
-    - http://tsumugi.forum-thalie.fr
+    - ~~http://tsumugi.forum-thalie.fr~~
     - https://theonestopradio.com/radio/tsumugi_radio_fr
 - Games
   - Dendy-Collection Radio
