@@ -62,6 +62,9 @@
   - Animecol Radio
     - https://www.radioexpresolatino.com/index.php/musica/animecol
     - https://theonestopradio.com/radio/animecol_radio_co-2-spa
+  - Fananpy Radio
+    - ~~https://fananpy.tk~~
+    - https://theonestopradio.com/radio/fananpy_radio_py
   - Otaku Music Radio
     - https://www.otakumusicradio.com
     - https://theonestopradio.com/radio/otaku_music_radio_es
