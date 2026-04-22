@@ -88,6 +88,7 @@ const MAP_METADATA = {
     cover: data.now_playing.song.art
   }),
   kohina: (data) => ({ title: data.history[9][1] }),
+  jhero: (data) => ({ title: `${data.song_history[0].artist} - ${data.song_history[0].title}` })
 }
 
 const updateMainLogo = (src) => {
@@ -180,10 +181,15 @@ const startMetadataTracking = (apiUrl, radioName) => {
         const data = await response.json()
         handleNewTrackData(data)
         let nextFetchDelay = 10000
-        if (radioName === 'laut' && data.ends_at) {
+        if (radioName === 'laut') {
           const delayUntilEnd = new Date(data.ends_at).getTime() - Date.now()
           if (delayUntilEnd > 1000) {
             nextFetchDelay = delayUntilEnd + 500
+          }
+        } else if (radioName === 'jhero') {
+          const delayUntilEnd = data.song_history[0].start_time + data.song_history[0].duration - Date.now()
+          if (delayUntilEnd > 1000) {
+            nextFetchDelay = delayUntilEnd + 5000
           }
         }
         metadataTimeout = setTimeout(fetchCurrentMeta, nextFetchDelay)

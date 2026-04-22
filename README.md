@@ -71,6 +71,9 @@
   - Tsumugi Radio
     - ~~http://tsumugi.forum-thalie.fr~~
     - https://theonestopradio.com/radio/tsumugi_radio_fr
+  - Rádio J-Hero
+    - https://radiojhero.com
+    - https://theonestopradio.com/radio/r%C3%A1dio_j_hero_br
 - Games
   - Dendy-Collection Radio
     - https://fmcube.net/radio/dendy-collection
