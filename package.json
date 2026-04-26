@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build --emptyOutDir",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "od": "yarn outdated"
   },
   "packageManager": "yarn@4.13.0",
   "devDependencies": {
