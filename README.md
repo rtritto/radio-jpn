@@ -117,6 +117,8 @@
   - Bachata Sensual Radio
     - https://bachatasensualradio.com
 - Salsa
+  - Radio Gasolina
+    - https://laut.fm/radiogasolina
   - Salsa
     - https://laut.fm/salsa
 - Mix
