@@ -133,6 +133,8 @@
     - https://laut.fm/salsamag
   - Durisima Radio
     - https://laut.fm/durisimaradio
+  - Conexion Latina
+    - https://laut.fm/conexionlatina
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
