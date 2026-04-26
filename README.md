@@ -125,6 +125,8 @@
     - https://laut.fm/radiomegarumba
   - Salsera
     - https://laut.fm/salsera
+  - Radio Habana
+    - https://laut.fm/radiohabana
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
