@@ -8,6 +8,10 @@
     - https://okufm.weebly.com
     - https://zeno.fm/radio/okufmcr
     - https://theonestopradio.com/radio/okufm_cr
+  - JKanime
+    - ~~https://www.jkanime.gratis~~
+    - https://zeno.fm/radio/jkanime
+    - https://theonestopradio.com/radio/m%C3%BAsica_y_noticias_anime_online_radio_jkanime_pe
   - Anime
     - https://laut.fm/anime
   - Anison FM
