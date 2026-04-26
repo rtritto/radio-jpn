@@ -142,6 +142,8 @@
   - Reggaeton
     - Trap and Beat
       - https://laut.fm/trapandbeat
+  - Reggaeton-FM
+    - https://laut.fm/reggaeton-fm
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
