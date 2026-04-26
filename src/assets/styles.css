@@ -155,6 +155,13 @@ body {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#track-info:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 #status-text {

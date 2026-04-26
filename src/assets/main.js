@@ -337,6 +337,11 @@ nextBtn.addEventListener('click', () => {
   loadAndPlay(newIndex)
 })
 
+trackInfo.addEventListener('click', async () => {
+  if (!currentTrackString) return
+  await navigator.clipboard.writeText(currentTrackString)
+})
+
 playlist.addEventListener('click', (e) => {
   const clickedItem = e.target.closest('li')
   if (!clickedItem) return
