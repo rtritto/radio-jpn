@@ -131,12 +131,14 @@
     - https://laut.fm/salsa_y_mas
   - Salsa Mag
     - https://laut.fm/salsamag
-  - Durisima Radio
-    - https://laut.fm/durisimaradio
   - Conexion Latina
     - https://laut.fm/conexionlatina
   - Radio MAS Salsa
     - https://laut.fm/radiomassalsa
+  - Primera Stereo
+    - https://laut.fm/primerastereo
+  - Durisima Radio
+    - https://laut.fm/durisimaradio
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
