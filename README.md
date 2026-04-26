@@ -139,6 +139,9 @@
     - https://laut.fm/primerastereo
   - Durisima Radio
     - https://laut.fm/durisimaradio
+  - Reggaeton
+    - Trap and Beat
+      - https://laut.fm/trapandbeat
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
