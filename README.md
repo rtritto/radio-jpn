@@ -78,6 +78,9 @@
   - Rádio J-Hero
     - https://radiojhero.com
     - https://theonestopradio.com/radio/r%C3%A1dio_j_hero_br
+  - Radio Doki
+    - https://www.radiodoki.com
+    - https://theonestopradio.com/radio/radiodoki_mx
 - Games
   - Kingdom Hearts Station
     - https://laut.fm/kh-station

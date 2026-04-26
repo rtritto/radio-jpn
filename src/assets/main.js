@@ -89,7 +89,8 @@ const MAP_METADATA = {
   }),
   kohina: (data) => ({ title: data.history[9][1] }),
   jhero: (data) => ({ title: `${data.song_history[0].artist} - ${data.song_history[0].title}` }),
-  onlineradiobox: (data) => ({ title: data.title, cover: data.iImg })
+  onlineradiobox: (data) => ({ title: data.title, cover: data.iImg }),
+  doki: (data) => ({ title: data.songtitle })
 }
 
 const updateMainLogo = (src) => {
