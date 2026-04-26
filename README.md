@@ -135,6 +135,8 @@
     - https://laut.fm/durisimaradio
   - Conexion Latina
     - https://laut.fm/conexionlatina
+  - Radio MAS Salsa
+    - https://laut.fm/radiomassalsa
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
