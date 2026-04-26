@@ -197,9 +197,7 @@
 
 - Gestures
     - Next/Prev
-- Deploy on GitHub
 - Save custom order of playlist in localStorage
-- PWA
 - Android Auto
 - Recall
 - Create favicon.svg
