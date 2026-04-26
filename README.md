@@ -121,6 +121,8 @@
     - https://laut.fm/radiogasolina
   - Salsa
     - https://laut.fm/salsa
+  - Radio Mega Rumba
+    - https://laut.fm/radiomegarumba
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
