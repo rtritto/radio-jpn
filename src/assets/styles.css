@@ -116,7 +116,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 #status-text {
@@ -161,7 +161,6 @@ body {
 
 #track-info:hover {
   opacity: 0.8;
-  text-decoration: underline;
 }
 
 #status-text {
