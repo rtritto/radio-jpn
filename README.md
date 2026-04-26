@@ -79,6 +79,8 @@
     - https://radiojhero.com
     - https://theonestopradio.com/radio/r%C3%A1dio_j_hero_br
 - Games
+  - Kingdom Hearts Station
+    - https://laut.fm/kh-station
   - Dendy-Collection Radio
     - https://fmcube.net/radio/dendy-collection
   - Fluffy Land RPG
