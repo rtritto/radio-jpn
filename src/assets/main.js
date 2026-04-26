@@ -339,7 +339,15 @@ nextBtn.addEventListener('click', () => {
 
 trackInfo.addEventListener('click', async () => {
   if (!currentTrackString) return
-  await navigator.clipboard.writeText(currentTrackString)
+
+  try {
+    await navigator.clipboard.writeText(currentTrackString)
+    trackInfo.innerText = 'Copyed to clipboard!'
+
+    setTimeout(() => {
+      trackInfo.innerText = currentTrackString
+    }, 1000)
+  } catch { }
 })
 
 playlist.addEventListener('click', (e) => {
