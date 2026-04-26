@@ -30,7 +30,7 @@ body {
   padding-bottom: 15px;
 }
 
-.header-container .share,
+.header-container .github,
 .header-container .spacer {
   flex-basis: 16px;
 }
