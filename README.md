@@ -116,6 +116,9 @@
 - Bachata Sensual
   - Bachata Sensual Radio
     - https://bachatasensualradio.com
+- Salsa
+  - Salsa
+    - https://laut.fm/salsa
 - Mix
   - Radio-Jetix
     - https://onlineradiobox.com/de/jetixbase
