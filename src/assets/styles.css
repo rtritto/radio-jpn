@@ -76,8 +76,8 @@ body {
 }
 
 .status-container {
-  position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
   align-items: center;
   margin-bottom: 20px;
   min-height: 40px;
@@ -85,8 +85,6 @@ body {
 }
 
 .status-gif {
-  position: absolute;
-  left: 10px;
   width: 20px;
   height: 20px;
   background-size: contain;
@@ -95,6 +93,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease;
+  justify-self: center;
 }
 
 .status-container.is-loading .status-gif {
@@ -128,8 +127,8 @@ body {
   opacity: 0;
   pointer-events: none;
   flex-shrink: 0;
-  margin-right: 10px;
   transition: opacity 0.3s ease;
+  justify-self: center;
 }
 
 #spotify[href] {
