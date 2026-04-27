@@ -92,7 +92,8 @@ const MAP_METADATA = {
   kohina: (data) => ({ title: data.history[9][1] }),
   jhero: (data) => ({ title: `${data.song_history[0].artist} - ${data.song_history[0].title}` }),
   onlineradiobox: (data) => ({ title: data.title, cover: data.iImg }),
-  doki: (data) => ({ title: data.songtitle })
+  doki: (data) => ({ title: data.songtitle }),
+  animemaze: (data) => ({ title: data.data['https://radio.markocg.com:8443/Anime64'].title })
 }
 
 const updateMainLogo = (src) => {
@@ -151,7 +152,7 @@ const stopMetadataTracking = () => {
   }
 }
 
-const startMetadataTracking = (apiUrl, radioName) => {
+const startMetadataTracking = (apiUrl, radioName, isPost) => {
   stopMetadataTracking()
 
   if (!apiUrl || !radioName) {
@@ -186,7 +187,7 @@ const startMetadataTracking = (apiUrl, radioName) => {
   } else {
     const fetchCurrentMeta = async () => {
       try {
-        const response = await fetch(apiUrl)
+        const response = await fetch(apiUrl, { method: isPost ? 'POST' : 'GET' })
         const data = await response.json()
         handleNewTrackData(data)
         let nextFetchDelay = 10000
@@ -228,7 +229,8 @@ audioPlayer.addEventListener('playing', () => {
   const activeItem = playlistItems[currentIndex]
   const currentApi = activeItem.getAttribute('data-api')
   const currentRadioName = activeItem.getAttribute('data-name')
-  startMetadataTracking(currentApi, currentRadioName)
+  const isPost = activeItem.getAttribute('post') === 'true'
+  startMetadataTracking(currentApi, currentRadioName, isPost)
 
   updateMediaSession()
 })

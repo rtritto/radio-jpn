@@ -71,6 +71,8 @@
   - Animecol Radio
     - https://www.radioexpresolatino.com/index.php/musica/animecol
     - https://theonestopradio.com/radio/animecol_radio_co-2-spa
+  - AnimeAmaze
+    - https://animeamaze.net/web-player
   - Fananpy Radio
     - ~~https://fananpy.tk~~
     - https://theonestopradio.com/radio/fananpy_radio_py
@@ -194,6 +196,8 @@
     - http://radio.shirayuki.org:9200 from [Yggdrasil Radio](https://yggdrasilradio.com)
     - http://yggdrasilradio.net:8000/;stream.nsv from http://yggdrasilradio.net:8000/index.html?sid=1
     - also available on https://theonestopradio.com/radio/yggdrasil_radio_us
+  - AnimeAmaze
+    - metadata CORS on https://animeamaze.net/wp-admin/admin-ajax.php
 
 - Gestures
     - Next/Prev
