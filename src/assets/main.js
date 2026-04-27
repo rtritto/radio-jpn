@@ -8,6 +8,7 @@ const statusContainer = document.getElementById('status-container')
 const statusText = document.getElementById('status-text')
 const trackInfo = document.getElementById('track-info')
 const spotify = document.getElementById('spotify')
+const youtube = document.getElementById('youtube')
 const mainLogo = document.getElementById('main-logo')
 const playPauseBtn = document.getElementById('play-pause-btn')
 const prevBtn = document.getElementById('prev-btn')
@@ -139,6 +140,7 @@ const destroyHls = () => {
 
 const stopMetadataTracking = () => {
   spotify.removeAttribute('href')
+  youtube.removeAttribute('href')
   if (metadataTimeout) {
     clearTimeout(metadataTimeout)
     metadataTimeout = null
@@ -163,6 +165,7 @@ const startMetadataTracking = (apiUrl, radioName) => {
       currentTrackString = title
       trackInfo.innerText = title
       spotify.href = `https://open.spotify.com/search/${encodeURIComponent(title)}`
+      youtube.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(title)}`
       if (cover) updateMainLogo(cover)
       else fetchAndSetCoverArt(title)
     }
@@ -258,6 +261,7 @@ const loadAndPlay = async (index) => {
   currentTrackString = ''
   trackInfo.innerText = ''
   spotify.removeAttribute('href')
+  youtube.removeAttribute('href')
 
   playlistItems.forEach(li => li.classList.remove('active'))
   const activeItem = playlistItems[currentIndex]
