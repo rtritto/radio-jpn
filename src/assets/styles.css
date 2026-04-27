@@ -30,7 +30,7 @@ body {
 
 .header-container .github {
   color: grey;
-  font-size: 22px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   transition: color 0.3s ease, filter 0.3s ease;
@@ -140,14 +140,16 @@ body {
   opacity: 1;
 }
 
-#spotify img {
-  display: block;
+#spotify svg {
+  width: 20px;
+  height: 20px;
 }
 
 #track-info {
   font-size: 0.8em;
   color: #1db954;
   margin-top: 4px;
+  text-align: center;
   width: 100%;
   font-weight: normal;
   line-height: 1.4;
